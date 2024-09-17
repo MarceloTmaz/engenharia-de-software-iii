@@ -1,0 +1,29 @@
+name: Pipeline CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  buidar:
+    runs-on: ubuntu-latest
+
+
+    steps:
+      - name: checkout do respositorio
+        uses: actions/checkout@v4
+
+      - name: install node.js
+        uses: action/setup-node@v4
+          with:
+            node-version: '20'
+
+      - name: instalar as dependecias
+        run: npm install
+
+      - name: rodar os teste
+        run: npm test
+      
+      -name: bluider o projento
+        run: npm run build
