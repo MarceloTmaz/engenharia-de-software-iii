@@ -21,26 +21,26 @@ export class JogoCtrl{
     listar(req:Request, res:Response){
         this.ordemCriacao();
         const dados={
-            'titulo':"Listar tarefa",
+            'titulo':"Listar jogo",
             'total':this._odernado
         }
-        res.render('Jogo/Listar',{dados})
+        res.send({dados})
     }
 
     listarAlfabetica(req:Request, res:Response){
         this.ordemalfabetica();
         const dados={
-            'titulo':"Listar tarefa",
+            'titulo':"Listar jogo",
             'total':this._odernado
         }
-        res.render('Jogo/Listar',{dados})
+        res.send({dados})
     }
     removerjogo(req:Request, res:Response){
 
         
-        let id=req.body.idR  
-       // console.log(id)
-        this.AremoverJogo(id)
+        let id=req.params.id  
+        //console.log(id)
+        this.AremoverJogo(Number(id))
         res.redirect('/jogo')
     }
 

@@ -11,8 +11,11 @@ jogoRouter.get('/jogo', (req: Request, res: Response) => {
 jogoRouter.get('/jogo/ordem_alfabetica', (req: Request, res: Response) => {
 
     jogo.listarAlfabetica(req, res);
-});
+});/*
 jogoRouter.post('/jogo/deletar', (req: Request, res: Response) => {
+    jogo.removerjogo(req, res);
+});*/
+jogoRouter.get('/jogo/deletar/:id', (req: Request, res: Response) => {
     jogo.removerjogo(req, res);
 });
 

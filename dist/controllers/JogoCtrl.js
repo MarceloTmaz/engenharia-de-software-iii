@@ -18,23 +18,23 @@ class JogoCtrl {
     listar(req, res) {
         this.ordemCriacao();
         const dados = {
-            'titulo': "Listar tarefa",
+            'titulo': "Listar jogo",
             'total': this._odernado
         };
-        res.render('Jogo/Listar', { dados });
+        res.send({ dados });
     }
     listarAlfabetica(req, res) {
         this.ordemalfabetica();
         const dados = {
-            'titulo': "Listar tarefa",
+            'titulo': "Listar jogo",
             'total': this._odernado
         };
-        res.render('Jogo/Listar', { dados });
+        res.send({ dados });
     }
     removerjogo(req, res) {
-        let id = req.body.idR;
-        // console.log(id)
-        this.AremoverJogo(id);
+        let id = req.params.id;
+        //console.log(id)
+        this.AremoverJogo(Number(id));
         res.redirect('/jogo');
     }
     ordemalfabetica() {
